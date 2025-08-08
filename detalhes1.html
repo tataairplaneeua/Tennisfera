@@ -1,0 +1,117 @@
+<html>
+    <head>
+        <title>TENNISFERA</title>
+        <style>
+            .barra-navegacao {
+                background-color: #0F4770; 
+                padding: 20px; /* Adiciona um espaço interno para a faixa parecer maior. */
+                display: flex; /* Alinha os itens em uma linha. */
+                align-items: center; /* Centraliza verticalmente o texto e os links. */
+                justify-content: space-between; /* Distribui o espaço entre os elementos. */
+            }
+
+            .barra-navegacao h4 {
+                margin: 0; 
+                color: white; 
+                font-size: 35px; 
+                font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; 
+            }
+
+            .menu-links {
+                display: flex; /* Mantém os links alinhados lado a lado. */
+                gap: 35px; /* Adiciona um espaço entre os links. */
+            }
+
+            .menu-links a {
+                color: white; /* Cor dos links. */
+                text-decoration: none; /* Remove o sublinhado dos links. */
+                font-size: 18px; 
+                font-family: Arial, Helvetica, sans-serif; 
+            }
+
+            body {
+                background-color:#bcd3d1
+            }
+
+            div.tenis {
+                width:100%;
+                overflow:auto;
+            }
+
+            div.tenis div {
+                width:25%;  
+                float:left;
+                margin-bottom: 50px;
+            }
+
+            div.cabeçalho {
+                width:100%;
+                overflow:auto;
+            }
+
+            div.cabeçalho div {
+                width:25%;  
+                float:left;
+                margin-bottom: 50px;
+            }
+
+            .tituloproduto {
+                font-size: 20px;
+                font-weight: bold;
+                font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            }
+
+            .valor {
+                font-size: 20px;
+                font-weight: bolder;
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                color: #940909;
+            }
+        </style>
+    </head>
+    <body>
+        <header class="barra-navegacao">
+            <h4>TENNISFERA</h4>
+            <nav class="menu-links">
+                <a href="home_tennisfera.html">Home</a>
+                <a href="promocoes_tennisfera.html">Promoções</a>
+                <a href="novidades_tennisfera.html">Novidades</a>
+                <a href="masculino_tennisfera.html">Masculino</a>
+                <a href="feminino_tennisfera.html">Feminino</a>
+                <a href="infantil_tennisfera.html">Infantil</a>
+                <a href="carrinho_tennisfera.html">🛒Carrinho</a>
+            </nav>
+        </header>
+        <main>
+            <article>
+                <br>
+                <div class="cabeçalho">
+                    <div style="margin-left: 200px; margin-right: 50px">
+                       <img src="energia.png" alt="Tênis Modelo" style="width: 100%;">
+                    </div>
+
+                    <div style="margin-right: 50px" >
+                        <p class="Tênis Energia">Tênis Energia</p>
+                        <p class="valor">R$ 259,90</p>
+                        <p>Super leve, confortável e ideal para caminhadas e treinos.</p>
+
+                        <label for="tamanho">Tamanho:</label><br>
+                        <select id="tamanho">
+                            <option>37</option>
+                            <option>38</option>
+                            <option>39</option>
+                            <option>40</option>
+                            <option>41</option>
+                        </select><br><br>
+
+                        <button style="padding: 10px 20px; background-color: #0F4770; color: white; border: none; cursor: pointer;">
+                            Adicionar ao Carrinho
+                        </button>
+                    </div>
+                </div>
+            </article>
+        </main>
+
+        </footer>
+    </body>
+</html>
