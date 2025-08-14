@@ -87,13 +87,13 @@
                 <br>
                 <div class="cabeçalho">
                     <div style="margin-left: 200px; margin-right: 50px">
-                       <img src="static/onix.png" alt="Tênis Modelo" style="width: 100%;">
+                       <img src="static/abstrato.png" alt="Tênis Modelo" style="width: 100%;">
                     </div>
 
                     <div style="margin-right: 50px" >
-                        <p class="Tênis onix">Tênis Esportivo</p>
-                        <p class="valor">R$ 379,90</p>
-                        <p>Super leve, confortável e ideal para caminhadas e treinos. Disponível em várias cores.</p>
+                        <p class="Tênis Abstrato">Tênis Abstrato</p>
+                        <p class="valor">R$ 889,90</p>
+                        <p>Com design moderno e estrutura reforçada, esse tênis oferece conforto e estabilidade para suas caminhadas com muito mais estilo.</p>
 
                         <label for="tamanho">Tamanho:</label><br>
                         <select id="tamanho">
@@ -104,6 +104,7 @@
                             <option>41</option>
                         </select><br><br>
 
+                       
                     </div>
                 </div>
             </article>
