@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>TENNISFERA</title>
+    <style>
+        .barra-navegacao {
+            background-color: #0F4770; 
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .barra-navegacao h4 {
+            margin: 0; 
+            color: white; 
+            font-size: 35px; 
+            font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; 
+        }
+
+        .menu-links {
+            display: flex;
+            gap: 35px;
+        }
+
+        .menu-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px; 
+            font-family: Arial, Helvetica, sans-serif; 
+        }
+
+        body {
+            background-color: #bcd3d1;
+            margin: 0;
+        }
+
+        .carrinho-container {
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .titulo {
+            font-size: 60px;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .item-produto {
+            background-color: white;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .produto-img {
+            width: 80px;
+            height: 80px;
+            margin-right: 15px;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+
+        .produto-info {
+            flex-grow: 1;
+        }
+
+        .produto-nome {
+            font-size: 18px;
+            font-weight: bold;
+            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            margin-bottom: 5px;
+        }
+
+        .produto-preco {
+            font-size: 16px;
+            font-weight: bold;
+            color: #940909;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin-bottom: 5px;
+        }
+
+        .produto-tamanho {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        .quantidade {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 10px 0;
+        }
+
+        .btn-qtd {
+            background-color: #0F4770;
+            color: white;
+            border: none;
+            width: 30px;
+            height: 30px;
+            cursor: pointer;
+            border-radius: 3px;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .btn-qtd:hover {
+            background-color: #0d3d5c;
+        }
+
+        .qtd-display {
+            background-color: #f5f5f5;
+            border: 1px solid #ddd;
+            padding: 5px 10px;
+            border-radius: 3px;
+            min-width: 30px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .btn-remover {
+            background-color: #940909;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            cursor: pointer;
+            border-radius: 3px;
+            margin-left: 10px;
+            font-size: 14px;
+        }
+
+        .btn-remover:hover {
+            background-color: #7a0707;
+        }
+
+        .total-area {
+            background-color: white;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .total-valor {
+            font-size: 24px;
+            font-weight: bold;
+            color: #940909;
+            margin: 15px 0;
+        }
+
+        .btn-finalizar {
+            background-color: #0F4770;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 16px;
+            cursor: pointer;
+            width: 100%;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        .btn-finalizar:hover {
+            background-color: #0d3d5c;
+        }
+
+        .carrinho-vazio {
+            text-align: center;
+            padding: 50px;
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .adicionar-produto {
+            background-color: white;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .form-adicionar {
+            display: flex;
+            gap: 10px;
+            align-items: end;
+            flex-wrap: wrap;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .form-group label {
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .form-group select, .form-group input {
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            font-size: 14px;
+        }
+
+        .btn-adicionar {
+            background-color: #0F4770;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 3px;
+            font-weight: bold;
+            height: fit-content;
+        }
+
+        .btn-adicionar:hover {
+            background-color: #0d3d5c;
+        }
+
+        .subtotal {
+            font-size: 14px;
+            color: #666;
+            font-weight: bold;
+            margin-top: 5px;
+        }
+
+        .resumo-pedido {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+
+        .resumo-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+            font-size: 14px;
+        }
+
+        .resumo-total {
+            border-top: 2px solid #0F4770;
+            padding-top: 10px;
+            margin-top: 10px;
+            font-weight: bold;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <header class="barra-navegacao">
+        <h4>
+            <a style="text-decoration: none; color: #fff;" href="home_tennisfera.html">TENNISFERA</a>
+        </h4>
+        <nav class="menu-links">
+            <a href="home_tennisfera.html">Home</a>
+            <a href="promocoes_tennisfera.html">Promoções</a>
+            <a href="novidades_tennisfera.html">Novidades</a>
+            <a href="masculino_tennisfera.html">Masculino</a>
+            <a href="feminino_tennisfera.html">Feminino</a>
+            <a href="infantil_tennisfera.html">Infantil</a>
+            <a href="carrinho_tennisfera.html">🛒Carrinho</a>
+        </nav>
+    </header>
+
+    <div class="carrinho-container">
+        <h1 class="titulo">CARRINHO</h1>
+        
+        <!-- Seção para adicionar produtos manualmente (para demonstração) -->
+        <div class="adicionar-produto" id="form-adicionar">
+            <h3>Adicionar Produto ao Carrinho</h3>
+            <div class="form-adicionar">
+                <div class="form-group">
+                    <label for="produto-select">Produto:</label>
+                    <select id="produto-select">
+                        <option value="">Selecione um produto</option>
+                        <option value="ENERGIA|359.90">ENERGIA - R$ 359,90</option>
+                        <option value="IMPULSO|359.90">IMPULSO - R$ 359,90</option>
+                        <option value="ATLÂNTICO|379.90">ATLÂNTICO - R$ 379,90</option>
+                        <option value="ONIX|379.90">ONIX - R$ 379,90</option>
+                        <option value="ASCEND|529.90">ASCEND - R$ 529,90</option>
+                        <option value="FLASH|399.90">FLASH - R$ 399,90</option>
+                        <option value="PURA|289.99">PURA - R$ 289,99</option>
+                        <option value="ESSENCIAL|289.99">ESSENCIAL - R$ 289,99</option>
+                        <option value="FORÇA TOTAL|529.90">FORÇA TOTAL - R$ 529,90</option>
+                        <option value="FORÇA ORBITAL|990.00">FORÇA ORBITAL - R$ 990,00</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="tamanho-select">Tamanho:</label>
+                    <select id="tamanho-select">
+                        <option value="37">37</option>
+                        <option value="38">38</option>
+                        <option value="39">39</option>
+                        <option value="40">40</option>
+                        <option value="41">41</option>
+                        <option value="42">42</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="qtd-input">Quantidade:</label>
+                    <input type="number" id="qtd-input" min="1" max="10" value="1">
+                </div>
+                <button class="btn-adicionar" onclick="adicionarProdutoForm()">Adicionar</button>
+            </div>
+        </div>
+
+        <div id="produtos-carrinho">
+            <div class="carrinho-vazio" id="vazio">
+                <h3>Carrinho vazio</h3>
+                <p>Adicione produtos para continuar</p>
+            </div>
+        </div>
+
+        <div class="total-area" id="total-area" style="display: none;">
+            <div class="resumo-pedido">
+                <h4>Resumo do Pedido</h4>
+                <div id="resumo-itens"></div>
+                <div class="resumo-total">
+                    <div class="resumo-item">
+                        <span>Total:</span>
+                        <span>R$ <span id="total">0,00</span></span>
+                    </div>
+                </div>
+            </div>
+            <button class="btn-finalizar" onclick="finalizar()">Finalizar Compra</button>
+        </div>
+    </div>
+
+    <footer style="text-align: center; padding: 20px;">
+        <h5>Telefone para contato: (17)99608-6466</h5>
+        <h6>Todos os direitos reservados.</h6>
+    </footer>
+
+    <script>
+        // Banco de dados dos produtos
+        var produtos = {
+            'ENERGIA': { nome: 'ENERGIA', preco: 359.90, img: 'static/energia.png' },
+            'IMPULSO': { nome: 'IMPULSO', preco: 359.90, img: 'static/impulso.jpg' },
+            'ATLÂNTICO': { nome: 'ATLÂNTICO', preco: 379.90, img: 'static/atlantico.png' },
+            'ONIX': { nome: 'ONIX', preco: 379.90, img: 'static/onix.png' },
+            'ASCEND': { nome: 'ASCEND', preco: 529.90, img: 'static/ascend.png' },
+            'FLASH': { nome: 'FLASH', preco: 399.90, img: 'static/flash.png' },
+            'PURA': { nome: 'PURA', preco: 289.99, img: 'static/pura.png' },
+            'ESSENCIAL': { nome: 'ESSENCIAL', preco: 289.99, img: 'static/essencial.png' },
+            'FORÇA TOTAL': { nome: 'FORÇA TOTAL', preco: 529.90, img: 'static/força_total.png' },
+            'FORÇA ORBITAL': { nome: 'FORÇA ORBITAL', preco: 990.00, img: 'static/força_orbital.png' }
+        };
+
+        var carrinho = [];
+
+        // Função para inicializar
+        function iniciar() {
+            mostrarCarrinho();
+        }
+
+        // Função para adicionar produto através do formulário
+        function adicionarProdutoForm() {
+            var select = document.getElementById('produto-select');
+            var tamanho = document.getElementById('tamanho-select').value;
+            var qtd = parseInt(document.getElementById('qtd-input').value);
+            
+            if (select.value === '') {
+                alert('Por favor, selecione um produto!');
+                return;
+            }
+            
+            if (qtd < 1 || qtd > 10) {
+                alert('Quantidade deve ser entre 1 e 10!');
+                return;
+            }
+            
+            var produtoInfo = select.value.split('|');
+            var nome = produtoInfo[0];
+            var preco = parseFloat(produtoInfo[1]);
+            
+            adicionarProduto(nome, preco, tamanho, qtd);
+            
+            // Reset do formulário
+            select.value = '';
+            document.getElementById('qtd-input').value = '1';
+        }
+
+        // Função para adicionar produto ao carrinho - CORRIGIDA
+        function adicionarProduto(nome, preco, tamanho, qtd) {
+            if (!qtd) qtd = 1;
+            
+            var produto = produtos[nome];
+            var img = produto ? produto.img : 'static/default.png';
+            
+            // Verifica se produto já existe no carrinho (mesmo nome E tamanho)
+            var encontrado = false;
+            for (var i = 0; i < carrinho.length; i++) {
+                if (carrinho[i].nome === nome && carrinho[i].tamanho === tamanho) {
+                    carrinho[i].qtd += qtd;
+                    encontrado = true;
+                    break;
+                }
+            }
+            
+            // Se não encontrou, adiciona novo item
+            if (!encontrado) {
+                carrinho.push({ 
+                    nome: nome, 
+                    preco: preco, 
+                    tamanho: tamanho, 
+                    qtd: qtd,
+                    img: img
+                });
+            }
+            
+            mostrarCarrinho();
+            alert('Produto adicionado ao carrinho!');
+        }
+
+        function mostrarCarrinho() {
+            var container = document.getElementById('produtos-carrinho');
+            var vazio = document.getElementById('vazio');
+            var totalArea = document.getElementById('total-area');
+
+            if (carrinho.length === 0) {
+                container.innerHTML = '<div class="carrinho-vazio" id="vazio"><h3>Carrinho vazio</h3><p>Adicione produtos para continuar</p></div>';
+                totalArea.style.display = 'none';
+                return;
+            }
+
+            totalArea.style.display = 'block';
+            container.innerHTML = '';
+
+            var total = 0;
+
+            for (var i = 0; i < carrinho.length; i++) {
+                var item = carrinho[i];
+                var subtotal = item.preco * item.qtd;
+                total += subtotal;
+
+                var div = document.createElement('div');
+                div.className = 'item-produto';
+                div.innerHTML = 
+                    '<img src="' + item.img + '" alt="' + item.nome + '" class="produto-img" onerror="this.src=\'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODAiIGhlaWdodD0iODAiIHZpZXdCb3g9IjAgMCA4MCA4MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjgwIiBoZWlnaHQ9IjgwIiBmaWxsPSIjZjVmNWY1Ii8+CjxwYXRoIGQ9Ik00MCA0MEw0MCA0MEw0MCA0MFoiIHN0cm9rZT0iIzk5OSIgc3Ryb2tlLXdpZHRoPSIyIi8+Cjx0ZXh0IHg9IjQwIiB5PSI0NSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjEwIiBmaWxsPSIjOTk5IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5JbWFnZW08L3RleHQ+Cjwvc3ZnPg==\'">' +
+                    '<div class="produto-info">' +
+                        '<div class="produto-nome">' + item.nome + '</div>' +
+                        '<div class="produto-preco">R$ ' + item.preco.toFixed(2).replace('.', ',') + '</div>' +
+                        '<div class="produto-tamanho">Tamanho: ' + item.tamanho + '</div>' +
+                        '<div class="quantidade">' +
+                            '<span>Quantidade:</span>' +
+                            '<button class="btn-qtd" onclick="mudarQtd(' + i + ', -1)">-</button>' +
+                            '<span class="qtd-display">' + item.qtd + '</span>' +
+                            '<button class="btn-qtd" onclick="mudarQtd(' + i + ', 1)">+</button>' +
+                        '</div>' +
+                        '<div class="subtotal">Subtotal: R$ ' + subtotal.toFixed(2).replace('.', ',') + '</div>' +
+                    '</div>' +
+                    '<button class="btn-remover" onclick="remover(' + i + ')">Remover</button>';
+                
+                container.appendChild(div);
+            }
+
+            document.getElementById('total').textContent = total.toFixed(2).replace('.', ',');
+            atualizarResumo();
+        }
+
+        function atualizarResumo() {
+            var resumoContainer = document.getElementById('resumo-itens');
+            resumoContainer.innerHTML = '';
+            
+            for (var i = 0; i < carrinho.length; i++) {
+                var item = carrinho[i];
+                var div = document.createElement('div');
+                div.className = 'resumo-item';
+                div.innerHTML = 
+                    '<span>' + item.nome + ' (Tam. ' + item.tamanho + ') x' + item.qtd + '</span>' +
+                    '<span>R$ ' + (item.preco * item.qtd).toFixed(2).replace('.', ',') + '</span>';
+                resumoContainer.appendChild(div);
+            }
+        }
+
+        function mudarQtd(index, mudanca) {
+            if (carrinho[index].qtd + mudanca <= 0) {
+                if (confirm('Deseja remover este item do carrinho?')) {
+                    carrinho.splice(index, 1);
+                }
+            } else if (carrinho[index].qtd + mudanca > 10) {
+                alert('Quantidade máxima é 10 unidades por produto!');
+                return;
+            } else {
+                carrinho[index].qtd += mudanca;
+            }
+            mostrarCarrinho();
+        }
+
+        function remover(index) {
+            if (confirm('Tem certeza que deseja remover este item do carrinho?')) {
+                carrinho.splice(index, 1);
+                mostrarCarrinho();
+            }
+        }
+
+        function finalizar() {
+            if (carrinho.length === 0) {
+                alert('Carrinho vazio!');
+                return;
+            }
+            
+            var total = 0;
+            var resumoPedido = 'RESUMO DO PEDIDO:\n\n';
+            
+            for (var i = 0; i < carrinho.length; i++) {
+                var item = carrinho[i];
+                var subtotal = item.preco * item.qtd;
+                total += subtotal;
+                resumoPedido += item.nome + ' (Tamanho: ' + item.tamanho + ') x' + item.qtd + ' = R$ ' + subtotal.toFixed(2).replace('.', ',') + '\n';
+            }
+            
+            resumoPedido += '\nTOTAL: R$ ' + total.toFixed(2).replace('.', ',');
+            
+            if (confirm(resumoPedido + '\n\nConfirmar pedido?')) {
+                alert('Pedido confirmado! Você será redirecionado para o pagamento.');
+                carrinho = [];
+                mostrarCarrinho();
+            }
+        }
+
+        // Função global para ser chamada de outras páginas - CORRIGIDA
+        window.adicionarAoCarrinho = function(nome, preco, tamanho) {
+            if (!tamanho) tamanho = '40'; // tamanho padrão se não especificado
+            adicionarProduto(nome, preco, tamanho, 1);
+        };
+
+        // Inicializar quando a página carregar
+        window.onload = function() {
+            iniciar();
+        };
+    </script>
+</body>
+</html>
