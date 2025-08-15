@@ -24,16 +24,17 @@
             font-family: 'Franklin Gothic Medium'; 
         }
         
-        .nav { 
-            display: flex; 
-            gap: 20px; 
-        }
-        
-        .nav a { 
-            color: white; 
-            text-decoration: none; 
-            font-size: 16px; 
-        }
+        .menu-links {
+                display: flex; /* Mantém os links alinhados lado a lado. */
+                gap: 35px; /* Adiciona um espaço entre os links. */
+            }
+
+            .menu-links a {
+                color: white; /* Cor dos links. */
+                text-decoration: none; /* Remove o sublinhado dos links. */
+                font-size: 18px; 
+                font-family: Arial, Helvetica, sans-serif; 
+            }
         
         .container { 
             max-width: 800px; 
@@ -208,15 +209,18 @@
 </head>
 <body>
     <header class="header">
-        <h1>TENNISFERA</h1>
-        <nav class="nav">
-            <a href="#home">Home</a>
-            <a href="#promocoes">Promoções</a>
-            <a href="#masculino">Masculino</a>
-            <a href="#feminino">Feminino</a>
-            <a href="#infantil">Infantil</a>
-            <a href="#carrinho">🛒 Carrinho</a>
-        </nav>
+        <h1>
+            <a style="text-decoration: none; color: #fff;" href="home_tennisfera.html">TENNISFERA</a>
+        </h1>
+        <nav class="menu-links">
+                <a href="home_tennisfera.html">Home</a>
+                <a href="promocoes_tennisfera.html">Promoções</a>
+                <a href="novidades_tennisfera.html">Novidades</a>
+                <a href="masculino_tennisfera.html">Masculino</a>
+                <a href="feminino_tennisfera.html">Feminino</a>
+                <a href="infantil_tennisfera.html">Infantil</a>
+                <a href="carrinho_tennisfera.html">🛒Carrinho</a>
+            </nav>
     </header>
 
     <div class="container">
@@ -236,13 +240,25 @@
                             <option value="ONIX|379.90|masculino">ONIX - R$ 379,90</option>
                             <option value="ASCEND|529.90|masculino">ASCEND - R$ 529,90</option>
                             <option value="FLASH|399.90|masculino">FLASH - R$ 399,90</option>
+                            <option value="FORÇA ORBITAL|990.00|masculino">FORÇA ORBITAL - R$ 990,00</option>
+                            <option value="FORÇA TOTAL|529.90|masculino">FORÇA TOTAL - R$ 529,90</option>
+                            <option value="FALCÃO DE PRATA|599.99|masculino">FALCÃO DE PRATA - R$ 599,99</option>
+                            <option value="ECLIPSE VERMELHO|599.99|masculino">ECLIPSE VERMELHO - R$ 599,99</option>
+                            <option value="FUTURA|659.90|masculino">FUTURA - R$ 659,90</option>
+                            <option value="ABSTRATO|899.99|masculino">ABSTRATO - R$ 899,99</option>
+                            <option value="QUANTUM SHIFT|789.99|masculino">QUANTUM SHIFT - R$ 789,99</option>
+                            <option value="FLUXO SÔNICO|679.99|masculino">FLUXO SÔNICO - R$ 679,99</option>
+                            <option value="PULSE NOVA|789.00|masculino">PULSE NOVA - R$ 789,00</option>
+                            <option value="DESPERTAR CARMESIM|789.00|masculino">DESPERTAR CARMESIM - R$ 789,00</option>
                         </optgroup>
                         <optgroup label="👩 Feminino">
                             <option value="PASSOS DE CRISTAL|339.99|feminino">PASSOS DE CRISTAL - R$ 339,99</option>
                             <option value="AURORA|430.00|feminino">AURORA - R$ 430,00</option>
                             <option value="VÊNUS|550.00|feminino">VÊNUS - R$ 550,00</option>
                             <option value="PURA|289.99|feminino">PURA - R$ 289,99</option>
+                            <option value="ESSENCIAL|289.99|feminino">ESSENCIAL - R$ 289,99</option>
                             <option value="ELEGANCE|387.90|feminino">ELEGANCE - R$ 387,90</option>
+                            <option value="SERENA|387.90|feminino">SERENA - R$ 387,90</option>
                         </optgroup>
                         <optgroup label="👶 Infantil">
                             <option value="EXPLORADOR ESTELAR|129.90|infantil">EXPLORADOR ESTELAR - R$ 129,90</option>
@@ -370,11 +386,23 @@
             'ONIX': 'static/onix.png',
             'ASCEND': 'static/ascend.png',
             'FLASH': 'static/flash.png',
+            'FORÇA ORBITAL': 'static/força_orbital.png',
+            'FORÇA TOTAL': 'static/força_total.png',
+            'FALCÃO DE PRATA': 'static/falcao_de_prata.jpg', 
+            'ECLIPSE VERMELHO': 'static/eclipse_vermelho.png',
+            'FUTURA': 'static/futura.png',
+            'ABSTRATO': 'static/abstrato.png',
+            'QUANTUM SHIFT': 'static/quantum_shift.png',
+            'FLUXO SÔNICO': 'static/fluxo_sonico.png',
+            'PULSE NOVA': 'static/pulse_nova.png',
+            'DESPERTAR CARMESIM': 'static/despertar_carmesim.png',
             'PASSOS DE CRISTAL': 'static/passos_de_cristal.png',
             'AURORA': 'static/aurora.png',
             'VÊNUS': 'static/venus.png',
             'PURA': 'static/pura.png',
+            'ESSENCIAL': 'static/essencial.png',
             'ELEGANCE': 'static/elegance.png',
+            'SERENA': 'static/brilho_serena.png',
             'EXPLORADOR ESTELAR': 'static/explorador_estelar.png',
             'REINO MÁGICO': 'static/reino_magico.png',
             'PEGADA DE DINOSSAURO': 'static/pe_dinossauro.png',
