@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<head>
+    <title>TENNISFERA - Estoque Feminino</title>
+    <style>
+        .barra-navegacao {
+            background-color: #0F4770; 
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .barra-navegacao h4 {
+            margin: 0; 
+            color: white; 
+            font-size: 35px; 
+            font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; 
+        }
+
+        .menu-links {
+            display: flex;
+            gap: 35px;
+        }
+
+        .menu-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px; 
+            font-family: Arial, Helvetica, sans-serif; 
+        }
+
+        body {
+            background-color:#bcd3d1;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container-principal {
+            padding: 20px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .titlesessao {
+            background-color: #0f487075;
+            padding: 15px;
+            color: #fff;
+            text-align: center;
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 30px;
+        }
+
+        .tabela-estoque {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: white;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .tabela-estoque th {
+            background-color: #0F4770;
+            color: white;
+            padding: 15px 10px;
+            text-align: left;
+            font-family: 'Franklin Gothic Medium', Arial, sans-serif;
+            font-size: 14px;
+        }
+
+        .tabela-estoque td {
+            padding: 12px 10px;
+            border-bottom: 1px solid #e0e0e0;
+            font-family: Arial, sans-serif;
+            font-size: 13px;
+        }
+
+        .tabela-estoque tr:hover {
+            background-color: #f5f5f5;
+        }
+
+        .preco-tabela {
+            font-weight: bold;
+            color: #940909;
+            font-size: 14px;
+        }
+
+        .estoque-input {
+            width: 60px;
+            padding: 5px;
+            border: 1px solid #ddd;
+            text-align: center;
+        }
+
+        .btn-atualizar {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            font-size: 12px;
+        }
+
+        .status-estoque {
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: bold;
+            color: white;
+        }
+
+        .estoque-alto { background-color: #4CAF50; }
+        .estoque-medio { background-color: #FF9800; }
+        .estoque-baixo { background-color: #f44336; }
+
+        .col-nome { width: 18%; }
+        .col-preco { width: 12%; }
+        .col-estoque { width: 8%; }
+        .col-descricao { width: 25%; }
+        .col-peso { width: 8%; }
+        .col-dimensoes { width: 15%; }
+        .col-status { width: 8%; }
+        .col-acao { width: 6%; }
+    </style>
+</head>
+<body>
+    <header class="barra-navegacao">
+        <h4>
+            <a style="text-decoration: none; color: #fff;" href="adiministrativo.html">TENNISFERA ADM</a>
+        </h4>
+        <nav class="menu-links">
+            <a href="EstoqueFeminino.html">Estoque Feminino</a>
+            <a href="EstoqueMasculino.html">Estoque Masculino</a>
+            <a href="EstoqueInfantil.html">Estoque Infantil</a>
+            <a href="vendas.html">Vendas</a>
+        </nav>
+    </header>
+
+    <div class="container-principal">
+        <div class="titlesessao">
+            ESTOQUE FEMININO
+        </div>
+
+        <form method="POST" action="atualizar_estoque.php">
+            <table class="tabela-estoque">
+                <thead>
+                    <tr>
+                        <th class="col-nome">Nome do Produto</th>
+                        <th class="col-preco">Preço</th>
+                        <th class="col-estoque">Estoque</th>
+                        <th class="col-descricao">Descrição</th>
+                        <th class="col-peso">Peso (kg)</th>
+                        <th class="col-dimensoes">Dimensões (C×L×P cm)</th>
+                        <th class="col-status">Status</th>
+                        <th class="col-acao">Ação</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>PASSOS DE CRISTAL</td>
+                        <td class="preco-tabela">R$ 339,99</td>
+                        <td><input type="number" name="estoque_cristal" value="20" class="estoque-input" min="0"></td>
+                        <td>Tons claros como branco e prata, com uma textura que lembra a lapidação de cristais. O design é minimalista, mas os detalhes sutis dão um toque de luxo e exclusividade.</td>
+                        <td>0,6</td>
+                        <td>28×10×9</td>
+                        <td><span class="status-estoque estoque-alto">Alto</span></td>
+                        <td><button type="submit" name="produto" value="cristal" class="btn-atualizar">Salvar</button></td>
+                    </tr>
+                    <tr>
+                        <td>AURORA</td>
+                        <td class="preco-tabela">R$ 430,00</td>
+                        <td><input type="number" name="estoque_aurora" value="15" class="estoque-input" min="0"></td>
+                        <td>Tons claros como pêssego e rosa, com um degradê suave que lembra um nascer do sol. Detalhes em dourado e um sutil brilho perolado dão um toque de leveza e magia.</td>
+                        <td>0,5</td>
+                        <td>27×10×8</td>
+                        <td><span class="status-estoque estoque-medio">Médio</span></td>
+                        <td><button type="submit" name="produto" value="aurora" class="btn-atualizar">Salvar</button></td>
+                    </tr>
+                    <tr>
+                        <td>VÊNUS</td>
+                        <td class="preco-tabela">R$ 550,00</td>
+                        <td><input type="number" name="estoque_venus" value="12" class="estoque-input" min="0"></td>
+                        <td>Um tênis ousado e sensual, com a cor principal em um vermelho vibrante e detalhes em dourado. O material é um mix de couro envernizado e tecido, com linhas sinuosas.</td>
+                        <td>0,7</td>
+                        <td>29×11×9</td>
+                        <td><span class="status-estoque estoque-medio">Médio</span></td>
+                        <td><button type="submit" name="produto" value="venus" class="btn-atualizar">Salvar</button></td>
+                    </tr>
+                    <tr>
+                        <td>PURA</td>
+                        <td class="preco-tabela">R$ 289,99</td>
+                        <td><input type="number" name="estoque_pura" value="25" class="estoque-input" min="0"></td>
+                        <td>Tênis na cor branca, com um design simples e minimalista, ideal para qualquer ocasião.</td>
+                        <td>0,5</td>
+                        <td>27×10×8</td>
+                        <td><span class="status-estoque estoque-alto">Alto</span></td>
+                        <td><button type="submit" name="produto" value="pura" class="btn-atualizar">Salvar</button></td>
+                    </tr>
+                    <tr>
+                        <td>ESSENCIAL</td>
+                        <td class="preco-tabela">R$ 289,99</td>
+                        <td><input type="number" name="estoque_essencial" value="22" class="estoque-input" min="0"></td>
+                        <td>Tênis com um design clássico e atemporal, na cor rosa bebê com detalhes discretos em branco.</td>
+                        <td>0,5</td>
+                        <td>27×10×8</td>
+                        <td><span class="status-estoque estoque-alto">Alto</span></td>
+                        <td><button type="submit" name="produto" value="essencial" class="btn-atualizar">Salvar</button></td>
+                    </tr>
+                    <tr>
+                        <td>ELEGANCE</td>
+                        <td class="preco-tabela">R$ 387,90</td>
+                        <td><input type="number" name="estoque_elegance" value="18" class="estoque-input" min="0"></td>
+                        <td>Tênis com um design mais fino e delicado, na cor rosa bebê com detalhes em dourado, para um visual sofisticado.</td>
+                        <td>0,6</td>
+                        <td>28×10×8</td>
+                        <td><span class="status-estoque estoque-medio">Médio</span></td>
+                        <td><button type="submit" name="produto" value="elegance" class="btn-atualizar">Salvar</button></td>
+                    </tr>
+                    <tr>
+                        <td>SERENA</td>
+                        <td class="preco-tabela">R$ 387,90</td>
+                        <td><input type="number" name="estoque_serena" value="16" class="estoque-input" min="0"></td>
+                        <td>Tênis na cor azul bebê, com um brilho sutil e detalhes em prata.</td>
+                        <td>0,6</td>
+                        <td>28×10×8</td>
+                        <td><span class="status-estoque estoque-medio">Médio</span></td>
+                        <td><button type="submit" name="produto" value="serena" class="btn-atualizar">Salvar</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </form>
+    </div>
+</body>
+</html>

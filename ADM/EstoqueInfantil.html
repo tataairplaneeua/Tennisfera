@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>TENNISFERA - Estoque Infantil</title>
+    <style>
+        .barra-navegacao {
+            background-color: #0F4770; 
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .barra-navegacao h4 {
+            margin: 0; 
+            color: white; 
+            font-size: 35px; 
+            font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; 
+        }
+
+        .menu-links {
+            display: flex;
+            gap: 35px;
+        }
+
+        .menu-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px; 
+            font-family: Arial, Helvetica, sans-serif; 
+        }
+
+        body {
+            background-color:#bcd3d1;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container-principal {
+            padding: 20px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .titlesessao {
+            background-color: #0f487075;
+            padding: 15px;
+            color: #fff;
+            text-align: center;
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 30px;
+        }
+
+        .tabela-estoque {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: white;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .tabela-estoque th {
+            background-color: #0F4770;
+            color: white;
+            padding: 15px 10px;
+            text-align: left;
+            font-family: 'Franklin Gothic Medium', Arial, sans-serif;
+            font-size: 14px;
+        }
+
+        .tabela-estoque td {
+            padding: 12px 10px;
+            border-bottom: 1px solid #e0e0e0;
+            font-family: Arial, sans-serif;
+            font-size: 13px;
+        }
+
+        .tabela-estoque tr:hover {
+            background-color: #f5f5f5;
+        }
+
+        .preco-tabela {
+            font-weight: bold;
+            color: #940909;
+            font-size: 14px;
+        }
+
+        .estoque-input {
+            width: 60px;
+            padding: 5px;
+            border: 1px solid #ddd;
+            text-align: center;
+        }
+
+        .btn-atualizar {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            font-size: 12px;
+        }
+
+        .status-estoque {
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: bold;
+            color: white;
+        }
+
+        .estoque-alto { background-color: #4CAF50; }
+        .estoque-medio { background-color: #FF9800; }
+        .estoque-baixo { background-color: #f44336; }
+
+        .col-nome { width: 18%; }
+        .col-preco { width: 12%; }
+        .col-estoque { width: 8%; }
+        .col-descricao { width: 30%; }
+        .col-peso { width: 7%; }
+        .col-dimensoes { width: 15%; }
+        .col-status { width: 8%; }
+        .col-acao { width: 6%; }
+
+        @media (max-width: 800px) {
+            .tabela-estoque thead { display: none; }
+            .tabela-estoque, .tabela-estoque tbody, .tabela-estoque tr, .tabela-estoque td { display: block; width: 100%; }
+            .tabela-estoque tr { margin-bottom: 15px; }
+            .tabela-estoque td { text-align: right; padding-left: 50%; position: relative; }
+            .tabela-estoque td::before {
+                content: attr(data-label);
+                position: absolute;
+                left: 10px;
+                width: 45%;
+                text-align: left;
+                font-weight: bold;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="barra-navegacao">
+        <h4>
+            <a style="text-decoration: none; color: #fff;" href="adiministrativo.html">TENNISFERA ADM</a>
+        </h4>
+        <nav class="menu-links">
+            <a href="EstoqueFeminino.html">Estoque Feminino</a>
+            <a href="EstoqueMasculino.html">Estoque Masculino</a>
+            <a href="EstoqueInfantil.html">Estoque Infantil</a>
+            <a href="vendas.html">Vendas</a>
+        </nav>
+    </header>
+
+    <div class="container-principal">
+        <div class="titlesessao">ESTOQUE INFANTIL</div>
+
+        <form method="POST" action="atualizar_estoque.php">
+            <table class="tabela-estoque">
+                <thead>
+                    <tr>
+                        <th class="col-nome">Nome do Produto</th>
+                        <th class="col-preco">Preço</th>
+                        <th class="col-estoque">Estoque</th>
+                        <th class="col-descricao">Descrição</th>
+                        <th class="col-peso">Peso (kg)</th>
+                        <th class="col-dimensoes">Dimensões (C×L×P cm)</th>
+                        <th class="col-status">Status</th>
+                        <th class="col-acao">Ação</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td data-label="Nome do Produto">EXPLORADOR ESTELAR</td>
+                        <td data-label="Preço" class="preco-tabela">R$ 129,90</td>
+                        <td data-label="Estoque"><input type="number" name="estoque_explorador" value="30" class="estoque-input" min="0"></td>
+                        <td data-label="Descrição">Cores vivas com estampas de planetas e foguetes — visual lúdico e divertido para crianças aventureiras.</td>
+                        <td data-label="Peso">0,35</td>
+                        <td data-label="Dimensões">22×8×7</td>
+                        <td data-label="Status"><span class="status-estoque estoque-alto">Alto</span></td>
+                        <td data-label="Ação"><button type="submit" name="produto" value="explorador" class="btn-atualizar">Salvar</button></td>
+                    </tr>
+
+                    <tr>
+                        <td data-label="Nome do Produto">REINO MÁGICO</td>
+                        <td data-label="Preço" class="preco-tabela">R$ 159,99</td>
+                        <td data-label="Estoque"><input type="number" name="estoque_reino" value="12" class="estoque-input" min="0"></td>
+                        <td data-label="Descrição">Tons de rosa e roxo com glitter e estampas de unicórnios — perfeito para quem gosta de brilho e fantasia.</td>
+                        <td data-label="Peso">0,32</td>
+                        <td data-label="Dimensões">21×8×7</td>
+                        <td data-label="Status"><span class="status-estoque estoque-medio">Médio</span></td>
+                        <td data-label="Ação"><button type="submit" name="produto" value="reino" class="btn-atualizar">Salvar</button></td>
+                    </tr>
+
+                    <tr>
+                        <td data-label="Nome do Produto">PEGADA DE DINOSSAURO</td>
+                        <td data-label="Preço" class="preco-tabela">R$ 129,90</td>
+                        <td data-label="Estoque"><input type="number" name="estoque_pegada" value="18" class="estoque-input" min="0"></td>
+                        <td data-label="Descrição">Cores verdes e texturas que lembram pele de dinossauro — solado com desenho de pegadas.</td>
+                        <td data-label="Peso">0,40</td>
+                        <td data-label="Dimensões">23×9×8</td>
+                        <td data-label="Status"><span class="status-estoque estoque-medio">Médio</span></td>
+                        <td data-label="Ação"><button type="submit" name="produto" value="pegada" class="btn-atualizar">Salvar</button></td>
+                    </tr>
+
+                    <tr>
+                        <td data-label="Nome do Produto">AVENTURA AQUÁTICA</td>
+                        <td data-label="Preço" class="preco-tabela">R$ 129,90</td>
+                        <td data-label="Estoque"><input type="number" name="estoque_aventura" value="22" class="estoque-input" min="0"></td>
+                        <td data-label="Descrição">Estampas que remetem ao mar — peixes, conchas e ondas para os pequenos exploradores aquáticos.</td>
+                        <td data-label="Peso">0,36</td>
+                        <td data-label="Dimensões">22×8×7</td>
+                        <td data-label="Status"><span class="status-estoque estoque-alto">Alto</span></td>
+                        <td data-label="Ação"><button type="submit" name="produto" value="aventura" class="btn-atualizar">Salvar</button></td>
+                    </tr>
+
+                    <tr>
+                        <td data-label="Nome do Produto">ROBUSTO</td>
+                        <td data-label="Preço" class="preco-tabela">R$ 169,99</td>
+                        <td data-label="Estoque"><input type="number" name="estoque_robusto" value="10" class="estoque-input" min="0"></td>
+                        <td data-label="Descrição">Visual mais resistente e com solado reforçado, ideal para brincadeiras mais intensas.</td>
+                        <td data-label="Peso">0,48</td>
+                        <td data-label="Dimensões">24×9×9</td>
+                        <td data-label="Status"><span class="status-estoque estoque-baixo">Baixo</span></td>
+                        <td data-label="Ação"><button type="submit" name="produto" value="robusto" class="btn-atualizar">Salvar</button></td>
+                    </tr>
+
+                    <tr>
+                        <td data-label="Nome do Produto">JARDIM SECRETO</td>
+                        <td data-label="Preço" class="preco-tabela">R$ 99,90</td>
+                        <td data-label="Estoque"><input type="number" name="estoque_jardim" value="40" class="estoque-input" min="0"></td>
+                        <td data-label="Descrição">Estampas florais delicadas, cores suaves — ótimo para looks do dia a dia.</td>
+                        <td data-label="Peso">0,30</td>
+                        <td data-label="Dimensões">21×8×7</td>
+                        <td data-label="Status"><span class="status-estoque estoque-alto">Alto</span></td>
+                        <td data-label="Ação"><button type="submit" name="produto" value="jardim" class="btn-atualizar">Salvar</button></td>
+                    </tr>
+
+                    <tr>
+                        <td data-label="Nome do Produto">RELÂMPAGO</td>
+                        <td data-label="Preço" class="preco-tabela">R$ 99,90</td>
+                        <td data-label="Estoque"><input type="number" name="estoque_relampago" value="25" class="estoque-input" min="0"></td>
+                        <td data-label="Descrição">Design esportivo com símbolo de raio — fabricado para crianças ativas.</td>
+                        <td data-label="Peso">0,33</td>
+                        <td data-label="Dimensões">22×8×7</td>
+                        <td data-label="Status"><span class="status-estoque estoque-alto">Alto</span></td>
+                        <td data-label="Ação"><button type="submit" name="produto" value="relampago" class="btn-atualizar">Salvar</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </form>
+    </div>
+</body>
+</html>

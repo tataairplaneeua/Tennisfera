@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<head>
+    <title>TENNISFERA - Estoque Masculino</title>
+    <style>
+        .barra-navegacao {
+            background-color: #0F4770; 
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .barra-navegacao h4 {
+            margin: 0; 
+            color: white; 
+            font-size: 35px; 
+            font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; 
+        }
+
+        .menu-links {
+            display: flex;
+            gap: 35px;
+        }
+
+        .menu-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px; 
+            font-family: Arial, Helvetica, sans-serif; 
+        }
+
+        body {
+            background-color:#bcd3d1;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container-principal {
+            padding: 20px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .titlesessao {
+            background-color: #0f487075;
+            padding: 15px;
+            color: #fff;
+            text-align: center;
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 30px;
+        }
+
+        .tabela-estoque {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: white;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .tabela-estoque th {
+            background-color: #0F4770;
+            color: white;
+            padding: 15px 10px;
+            text-align: left;
+            font-family: 'Franklin Gothic Medium', Arial, sans-serif;
+            font-size: 14px;
+        }
+
+        .tabela-estoque td {
+            padding: 12px 10px;
+            border-bottom: 1px solid #e0e0e0;
+            font-family: Arial, sans-serif;
+            font-size: 13px;
+        }
+
+        .tabela-estoque tr:hover {
+            background-color: #f5f5f5;
+        }
+
+        .preco-tabela {
+            font-weight: bold;
+            color: #940909;
+            font-size: 14px;
+        }
+
+        .estoque-input {
+            width: 60px;
+            padding: 5px;
+            border: 1px solid #ddd;
+            text-align: center;
+        }
+
+        .btn-atualizar {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            font-size: 12px;
+        }
+
+        .status-estoque {
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: bold;
+            color: white;
+        }
+
+        .estoque-alto { background-color: #4CAF50; }
+        .estoque-medio { background-color: #FF9800; }
+        .estoque-baixo { background-color: #f44336; }
+
+        .col-nome { width: 18%; }
+        .col-preco { width: 12%; }
+        .col-estoque { width: 8%; }
+        .col-descricao { width: 25%; }
+        .col-peso { width: 8%; }
+        .col-dimensoes { width: 15%; }
+        .col-status { width: 8%; }
+        .col-acao { width: 6%; }
+    </style>
+</head>
+<body>
+    <header class="barra-navegacao">
+        <h4>
+            <a style="text-decoration: none; color: #fff;" href="adiministrativo.html">TENNISFERA ADM</a>
+        </h4>
+        <nav class="menu-links">
+            <a href="EstoqueFeminino.html">Estoque Feminino</a>
+            <a href="EstoqueMasculino.html">Estoque Masculino</a>
+            <a href="EstoqueInfantil.html">Estoque Infantil</a>
+            <a href="vendas.html">Vendas</a>
+        </nav>
+    </header>
+
+    <div class="container-principal">
+        <div class="titlesessao">
+            ESTOQUE MASCULINO
+        </div>
+
+        <form method="POST" action="atualizar_estoque.php">
+            <table class="tabela-estoque">
+                <thead>
+                    <tr>
+                        <th class="col-nome">Nome do Produto</th>
+                        <th class="col-preco">Preço</th>
+                        <th class="col-estoque">Estoque</th>
+                        <th class="col-descricao">Descrição</th>
+                        <th class="col-peso">Peso (kg)</th>
+                        <th class="col-dimensoes">Dimensões (C×L×P cm)</th>
+                        <th class="col-status">Status</th>
+                        <th class="col-acao">Ação</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>ENERGIA</td>
+                        <td class="preco-tabela">R$ 359,90</td>
+                        <td><input type="number" name="estoque_energia" value="25" class="estoque-input" min="0"></td>
+                        <td>Tênis na cor vermelha com detalhes em preto e branco, ideal para aulas de musculação e outros esportes que necessitam de maior estabilidade.</td>
+                        <td>0,8</td>
+                        <td>32×12×11</td>
+                        <td><span class="status-estoque estoque-alto">Alto</span></td>
+                        <td><button type="submit" name="produto" value="energia" class="btn-atualizar">Salvar</button></td>
+                    </tr>
+                    <tr>
+                        <td>IMPULSO</td>
+                        <td class="preco-tabela">R$ 359,90</td>
+                        <td><input type="number" name="estoque_impulso" value="18" class="estoque-input" min="0"></td>
+                        <td>Tênis na cor cinza escuro com detalhes em branco, preto e azul, ideal para aulas de musculação e outros esportes que necessitam de maior estabilidade.</td>
+                        <td>0,9</td>
+                        <td>33×12×11</td>
+                        <td><span class="status-estoque estoque-medio">Médio</span></td>
+                        <td><button type="submit" name="produto" value="impulso" class="btn-atualizar">Salvar</button></td>
+                    </tr>
+                    <tr>
+                        <td>ATLÂNTICO</td>
+                        <td class="preco-tabela">R$ 379,90</td>
+                        <td><input type="number" name="estoque_atlantico" value="22" class="estoque-input" min="0"></td>
+                        <td>Tênis azul com detalhes em branco, ideal para caminhadas e corridas por sua estrutura que garante maior maciez e aderência.</td>
+                        <td>0,7</td>
+                        <td>32×11×10</td>
+                        <td><span class="status-estoque estoque-alto">Alto</span></td>
+                        <td><button type="submit" name="produto" value="atlantico" class="btn-atualizar">Salvar</button></td>
+                    </tr>
+                    <tr>
+                        <td>ONIX</td>
+                        <td class="preco-tabela">R$ 379,90</td>
+                        <td><input type="number" name="estoque_onix" value="15" class="estoque-input" min="0"></td>
+                        <td>Tênis preto com detalhes em branco, ideal para caminhadas e corridas por sua estrutura que garante maior maciez e aderência.</td>
+                        <td>0,7</td>
+                        <td>32×11×10</td>
+                        <td><span class="status-estoque estoque-medio">Médio</span></td>
+                        <td><button type="submit" name="produto" value="onix" class="btn-atualizar">Salvar</button></td>
+                    </tr>
+                    <tr>
+                        <td>ASCEND</td>
+                        <td class="preco-tabela">R$ 529,90</td>
+                        <td><input type="number" name="estoque_ascend" value="12" class="estoque-input" min="0"></td>
+                        <td>Design com linhas dinâmicas que se movem para cima, simbolizando ascensão. A cor principal é o vermelho, com detalhes em branco, ideal para jogos de basquete e futebol de salão.</td>
+                        <td>1,0</td>
+                        <td>34×13×12</td>
+                        <td><span class="status-estoque estoque-medio">Médio</span></td>
+                        <td><button type="submit" name="produto" value="ascend" class="btn-atualizar">Salvar</button></td>
+                    </tr>
+                    <tr>
+                        <td>FLASH</td>
+                        <td class="preco-tabela">R$ 399,90</td>
+                        <td><input type="number" name="estoque_flash" value="20" class="estoque-input" min="0"></td>
+                        <td>Tênis leve e com design aerodinâmico, na cor preta com detalhes em verde vibrante. Ele garante conforto em treinos pesados.</td>
+                        <td>0,6</td>
+                        <td>31×11×10</td>
+                        <td><span class="status-estoque estoque-alto">Alto</span></td>
+                        <td><button type="submit" name="produto" value="flash" class="btn-atualizar">Salvar</button></td>
+                    </tr>
+                    <tr>
+                        <td>FORÇA ORBITAL</td>
+                        <td class="preco-tabela">R$ 990,00</td>
+                        <td><input type="number" name="estoque_orbital" value="8" class="estoque-input" min="0"></td>
+                        <td>Tênis com um design futurista, na cor branca com detalhes em preto e vermelho, ideal para jogos de basquete pela sua estabilidade.</td>
+                        <td>1,2</td>
+                        <td>35×14×13</td>
+                        <td><span class="status-estoque estoque-baixo">Baixo</span></td>
+                        <td><button type="submit" name="produto" value="orbital" class="btn-atualizar">Salvar</button></td>
+                    </tr>
+                    <tr>
+                        <td>FORÇA TOTAL</td>
+                        <td class="preco-tabela">R$ 529,90</td>
+                        <td><input type="number" name="estoque_total" value="14" class="estoque-input" min="0"></td>
+                        <td>Tênis com um design robusto e angular, no verde musgo e com detalhes em verde claro para um visual forte e impactante.</td>
+                        <td>1,1</td>
+                        <td>34×13×12</td>
+                        <td><span class="status-estoque estoque-medio">Médio</span></td>
+                        <td><button type="submit" name="produto" value="total" class="btn-atualizar">Salvar</button></td>
+                    </tr>
+                    <tr>
+                        <td>FALCÃO DE PRATA</td>
+                        <td class="preco-tabela">R$ 599,99</td>
+                        <td><input type="number" name="estoque_falcao" value="10" class="estoque-input" min="0"></td>
+                        <td>Tênis com design aerodinâmico, na cor azul com detalhes em prata, para um visual elegante e rápido.</td>
+                        <td>0,8</td>
+                        <td>33×12×11</td>
+                        <td><span class="status-estoque estoque-baixo">Baixo</span></td>
+                        <td><button type="submit" name="produto" value="falcao" class="btn-atualizar">Salvar</button></td>
+                    </tr>
+                    <tr>
+                        <td>ECLIPSE VERMELHO</td>
+                        <td class="preco-tabela">R$ 599,99</td>
+                        <td><input type="number" name="estoque_eclipse" value="16" class="estoque-input" min="0"></td>
+                        <td>Tênis predominantemente preto, com detalhes na cor vermelha, remetendo a uma bola de basquete.</td>
+                        <td>0,9</td>
+                        <td>33×12×11</td>
+                        <td><span class="status-estoque estoque-medio">Médio</span></td>
+                        <td><button type="submit" name="produto" value="eclipse" class="btn-atualizar">Salvar</button></td>
+                    </tr>
+                    <tr>
+                        <td>FUTURA</td>
+                        <td class="preco-tabela">R$ 659,90</td>
+                        <td><input type="number" name="estoque_futura" value="9" class="estoque-input" min="0"></td>
+                        <td>Design minimalista e futurista, na cor preta e com detalhes holográficos.</td>
+                        <td>0,8</td>
+                        <td>32×12×10</td>
+                        <td><span class="status-estoque estoque-baixo">Baixo</span></td>
+                        <td><button type="submit" name="produto" value="futura" class="btn-atualizar">Salvar</button></td>
+                    </tr>
+                    <tr>
+                        <td>ABSTRATO</td>
+                        <td class="preco-tabela">R$ 899,99</td>
+                        <td><input type="number" name="estoque_abstrato" value="6" class="estoque-input" min="0"></td>
+                        <td>Design com formas geométricas e cores que se misturam, para um visual único e criativo.</td>
+                        <td>0,9</td>
+                        <td>33×12×11</td>
+                        <td><span class="status-estoque estoque-baixo">Baixo</span></td>
+                        <td><button type="submit" name="produto" value="abstrato" class="btn-atualizar">Salvar</button></td>
+                    </tr>
+                    <tr>
+                        <td>QUANTUM SHIFT</td>
+                        <td class="preco-tabela">R$ 789,99</td>
+                        <td><input type="number" name="estoque_quantum" value="11" class="estoque-input" min="0"></td>
+                        <td>Tênis com a cor principal preto, em detalhes na cor roxo.</td>
+                        <td>0,8</td>
+                        <td>32×12×10</td>
+                        <td><span class="status-estoque estoque-medio">Médio</span></td>
+                        <td><button type="submit" name="produto" value="quantum" class="btn-atualizar">Salvar</button></td>
+                    </tr>
+                    <tr>
+                        <td>FLUXO SONICO</td>
+                        <td class="preco-tabela">R$ 679,99</td>
+                        <td><input type="number" name="estoque_fluxo" value="13" class="estoque-input" min="0"></td>
+                        <td>Design com linhas dinâmicas que se propagam pelo tênis. A cor principal é o preto, com detalhes azul holográfico e laranja.</td>
+                        <td>0,7</td>
+                        <td>32×11×10</td>
+                        <td><span class="status-estoque estoque-medio">Médio</span></td>
+                        <td><button type="submit" name="produto" value="fluxo" class="btn-atualizar">Salvar</button></td>
+                    </tr>
+                    <tr>
+                        <td>PULSE NOVA</td>
+                        <td class="preco-tabela">R$ 789,00</td>
+                        <td><input type="number" name="estoque_pulse" value="7" class="estoque-input" min="0"></td>
+                        <td>Design com um padrão vibrante que parece pulsar, na cor preta com detalhes em azul.</td>
+                        <td>0,8</td>
+                        <td>33×12×11</td>
+                        <td><span class="status-estoque estoque-baixo">Baixo</span></td>
+                        <td><button type="submit" name="produto" value="pulse" class="btn-atualizar">Salvar</button></td>
+                    </tr>
+                    <tr>
+                        <td>DESPERTAR CARMESIM</td>
+                        <td class="preco-tabela">R$ 789,00</td>
+                        <td><input type="number" name="estoque_carmesim" value="12" class="estoque-input" min="0"></td>
+                        <td>Tênis com design elegante na cor branca, com detalhes em preto e vermelho.</td>
+                        <td>0,9</td>
+                        <td>33×12×11</td>
+                        <td><span class="status-estoque estoque-medio">Médio</span></td>
+                        <td><button type="submit" name="produto" value="carmesim" class="btn-atualizar">Salvar</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </form>
+    </div>
+</body>
+</html>
