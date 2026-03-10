@@ -1,0 +1,119 @@
+ .barra-navegacao {
+            background-color: #0F4770; 
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .barra-navegacao h4 {
+            margin: 0; 
+            color: white; 
+            font-size: 35px; 
+            font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; 
+        }
+
+        .menu-links {
+            display: flex;
+            gap: 35px;
+        }
+
+        .menu-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px; 
+            font-family: Arial, Helvetica, sans-serif; 
+        }
+
+        body {
+            background-color:#bcd3d1;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container-principal {
+            padding: 20px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .titlesessao {
+            background-color: #0f487075;
+            padding: 15px;
+            color: #fff;
+            text-align: center;
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 30px;
+        }
+
+        .tabela-estoque {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: white;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .tabela-estoque th {
+            background-color: #0F4770;
+            color: white;
+            padding: 15px 10px;
+            text-align: left;
+            font-family: 'Franklin Gothic Medium', Arial, sans-serif;
+            font-size: 14px;
+        }
+
+        .tabela-estoque td {
+            padding: 12px 10px;
+            border-bottom: 1px solid #e0e0e0;
+            font-family: Arial, sans-serif;
+            font-size: 13px;
+        }
+
+        .tabela-estoque tr:hover {
+            background-color: #f5f5f5;
+        }
+
+        .preco-tabela {
+            font-weight: bold;
+            color: #940909;
+            font-size: 14px;
+        }
+
+        .estoque-input {
+            width: 60px;
+            padding: 5px;
+            border: 1px solid #ddd;
+            text-align: center;
+        }
+
+        .btn-atualizar {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            font-size: 12px;
+        }
+
+        .status-estoque {
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: bold;
+            color: white;
+        }
+
+        .estoque-alto { background-color: #4CAF50; }
+        .estoque-medio { background-color: #FF9800; }
+        .estoque-baixo { background-color: #f44336; }
+
+        .col-nome { width: 18%; }
+        .col-preco { width: 12%; }
+        .col-estoque { width: 8%; }
+        .col-descricao { width: 25%; }
+        .col-peso { width: 8%; }
+        .col-dimensoes { width: 15%; }
+        .col-status { width: 8%; }
+        .col-acao { width: 6%; }
