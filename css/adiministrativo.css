@@ -1,0 +1,75 @@
+/* 1. RESET BÁSICO */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #bcd3d1;
+    font-family: Arial, sans-serif;
+}
+
+/* 2. BARRA DE NAVEGAÇÃO */
+.barra-navegacao {
+    background-color: #0F4770;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.barra-navegacao h4 a {
+    font-size: 30px;
+    font-family: 'Franklin Gothic Medium', sans-serif;
+}
+
+.menu-links a {
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+    font-weight: bold;
+}
+
+/* 3. ESTILO DA TABELA (O CORAÇÃO DO SITE ADM) */
+.container-tabela {
+    width: 80%;
+    margin: 50px auto; /* Centraliza a tabela na tela */
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.tabela-tenis {
+    width: 100%;
+    border-collapse: collapse; /* Remove espaços entre as bordas */
+}
+
+.tabela-tenis th {
+    background-color: #0F4770;
+    color: white;
+    padding: 12px;
+    text-align: left;
+}
+
+.tabela-tenis td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    color: #333;
+}
+
+/* Deixa uma linha sim, outra não com cor diferente (Efeito Zebra) */
+.tabela-tenis tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.preco-tabela {
+    font-weight: bold;
+    color: #940909;
+}
+
+/* Efeito ao passar o mouse na linha */
+.tabela-tenis tr:hover {
+    background-color: #d1e7e5;
+}
